@@ -14,7 +14,7 @@ conda create -n qrecc python=3
 conda activate qrecc
 pip install warcio
 
-srun --time=150:00:00 python download_commoncrawl_passages.py --output-directory collection/commoncrawl --workers 8
+srun --time=150:00:00 -c16 -n1 python download_commoncrawl_passages.py --output-directory collection/commoncrawl --workers 16
 ```
 
 To download pages from the Wayback Machine, run the following command after you've extracted the dataset.
