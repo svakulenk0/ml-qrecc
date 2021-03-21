@@ -42,6 +42,8 @@ After installing Pyserini we used the following command to build the index.
 For us this took less than 2 hours.
 
 ```bash
+pip install pyserini==0.11.0.0
+
 srun --time=150:00:00 --mem=256G -c8 -n1 python -m pyserini.index -collection JsonCollection -generator DefaultLuceneDocumentGenerator \
  -threads 76 -input collection-paragraph \
  -index index-paragraph -storePositions -storeDocvectors -storeRaw
