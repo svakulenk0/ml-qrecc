@@ -33,7 +33,7 @@ Next we segmented the webpage documents into smaller passages.
 This is quite quick and took several minutes.
 
 ```bash
-time python paragraph_chunker.py --input-directory collection --output-directory collection-paragraph --workers 8
+srun --time=150:00:00 --mem=256G -c8 -n1 python paragraph_chunker.py --input-directory collection --output-directory collection-paragraph --workers 8
 ```
 
 Finally we indexed the passages using [Pyserini](https://github.com/castorini/pyserini/), a Python wrapper around [Anserini](http://anserini.io/), an information retrieval toolkit built on Lucene.
