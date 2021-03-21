@@ -22,7 +22,11 @@ This saves webpage documents in .jsonl format into the `collection/wayback` subd
 For us this took 9 hours to run.
 
 ```bash
-time python download_wayback_passages.py --inputs '../dataset/*.json' --output-directory collection/wayback --workers 4
+pip install requests
+pip install bs4
+pip install pandas
+
+srun --time=150:00:00 --mem=256G -c4 -n1 python download_wayback_passages.py --inputs '../dataset/*.json' --output-directory collection/wayback --workers 4
 ```
 
 Next we segmented the webpage documents into smaller passages.
